@@ -1,0 +1,76 @@
+<div class="card mb-3  text-center ">
+  <div
+    class="overflow-auto"
+    data-spy="scroll"
+    data-target="#navbar-example2"
+    data-offset="0"
+    style="max-height: 600px; height: 600px;"
+  >
+    <div *ngFor="let message of messages">
+      <div
+        *ngIf="id != message.id"
+        class="card-body text-left float-left"
+        style="width: 100%;"
+      >
+        <img
+          class="float-left"
+          src="../../../assets/cat.png"
+          alt="Card image cap"
+        />
+        <div class="msg float-left rounded px-2 ">
+          <p class="card-text text-white  bg-primary p-2 rounded mb-0 ">
+            {{ message.data }}
+          </p>
+          <p class="float-right text-secondary text-muted pl-2">
+            21.39 09.03.2020
+          </p>
+          <p class=" text-secondary text-muted float-left">
+            omerozoglu
+          </p>
+        </div>
+      </div>
+
+      <div
+        *ngIf="id == message.id"
+        class="card-body text-right float-right"
+        style="width: 100%;"
+      >
+        <img
+          class="float-right"
+          src="../../../assets/cat.png"
+          alt="Card image cap"
+        />
+        <div class="msg float-right rounded px-2">
+          <p class="card-text text-white  bg-primary p-2 rounded mb-0">
+            {{ message.data }}
+          </p>
+          <p class="float-right text-secondary text-muted pl-2">
+            21.39 09.03.2020
+          </p>
+          <p class=" text-secondary text-muted float-left">
+            testuser
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body ">
+    <div class="row input-group">
+      <div class="col-md-11 col-sm-11 col-10">
+        <input
+          [(ngModel)]="newMessage"
+          type="text"
+          class="input-group-append form-control"
+          placeholder="Message"
+        />
+      </div>
+      <div class="col-md-1 col-sm-1 col-1">
+        <button (click)="sendMessage()" class="button">
+          <a href="" class="m-0 input-group-append"
+            ><img class="rounded mx-auto d-block" src="../../../assets/send.png"
+          /></a>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
